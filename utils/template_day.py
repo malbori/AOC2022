@@ -8,17 +8,16 @@ import re
 
 from utils.util import *
 
+
 def solve(d):
-    
-
     # convert string to array of nums with helper function
-    #nums = ints(d)
+    # nums = ints(d)
 
-    #multiple lines of nums
+    # multiple lines of nums
     # nums = [[ints(l)] for l in d.split("\n")]
 
-
     return
+
 
 s = ""
 print(solve(s))
