@@ -11,7 +11,7 @@ from utility.helper import ints
 
 def solve():
 
-    data = open('data_inputs\day0X_input.txt', 'r', encoding='utf-8').read().splitlines()
+    data = open('data_inputs\day03_input.txt', 'r', encoding='utf-8').read().splitlines()
 
     # convert string to array of nums with helper function
     # nums = ints(data)
