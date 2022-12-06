@@ -16,7 +16,7 @@ def solve():
         # only care starting at 4th postion. If the set is len of 4 we know chars are unique
 
         # for part to change range of set from 4 to 14
-        if i-3>=0 and len(set([data[i-j] for j in range(14)]))==14:
+        if i-13>=0 and len(set([data[i-j] for j in range(14)]))==14:
             unique_instances.append(i+1)
 
     print("Part 1 or 2", unique_instances[0])
