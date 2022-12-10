@@ -33,7 +33,7 @@ def solve():
     y_position = [0] * length_of_rope
 
     # going to build a dictionary of the visited positions
-    visited_points = {x_position[-1], y_position[-1]}
+    visited_points = {0}
 
     # iterate through the operations
     for (move_x, move_y), dist in operations:
@@ -56,6 +56,7 @@ def solve():
             
             # log the visited spot
             visited_points.add((x_position[-1], y_position[-1]))
+    # print(visited_points)
     print(len(visited_points))
     return
 
