@@ -8,13 +8,12 @@ import re
 
 
 
-def solve():
+def solve(length_of_rope):
 
     data = open('data_inputs\day09_input.txt', 'r', encoding='utf-8').read().splitlines()
-    length_of_rope = 2
 
     # Direction Mapping
-    direction = {'L': (-1,0), 'R':(1,0),'D':(0,-1),'U':(0,1)}
+    direction = {'L': (-1, 0), 'R': (1, 0), 'D': (0, -1), 'U': (0, 1)}
 
     # map the operations in data into direction , distance
     operations = []
@@ -33,7 +32,7 @@ def solve():
     y_position = [0] * length_of_rope
 
     # going to build a dictionary of the visited positions
-    visited_points = {0}
+    visited_points = { (x_position[-1], y_position[-1]) }
 
     # iterate through the operations
     for (move_x, move_y), dist in operations:
@@ -44,15 +43,15 @@ def solve():
             x_position[0] += move_x
             y_position[0] += move_y
 
-            for j in range (length_of_rope -1):
-                # track the distance and handle directional movement
-                x_distance = x_position[j + 1] - x_position[j]
-                y_distance = y_position[j +1] - y_position[j]
+            for j in range(length_of_rope - 1):
+                # distance created with the move
+                distance_x = x_position[j + 1] - x_position[j] 
+                distance_y = y_position[j + 1] - y_position[j]
 
-                # handle directional movement
-                if abs(x_distance) == 2 or abs(y_distance) == 2:
-                    x_position[j + 1] = x_position[j] + int(x_distance / 2)
-                    y_position[j + 1] = x_position[j] + int(y_distance / 2)
+                # diagonal. Use abs to get rid of those negative values 
+                if abs(distance_x) == 2 or abs(distance_y) == 2: 
+                    x_position[j + 1] = x_position[j] + int(distance_x / 2) 
+                    y_position[j + 1] = y_position[j] + int(distance_y / 2)
             
             # log the visited spot
             visited_points.add((x_position[-1], y_position[-1]))
@@ -60,4 +59,8 @@ def solve():
     print(len(visited_points))
     return
 
-solve()
+# Part 1
+solve(2)
+
+# Part 2
+solve(10)
